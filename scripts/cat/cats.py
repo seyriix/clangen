@@ -1523,6 +1523,9 @@ class Cat:
             self.status._change_rank(CatRank.KITTEN)
         self.in_camp = 1
 
+        if self.moons == 2: # grew out of blue eyes
+            self.pelt.rebuild_sprite = True
+
         if not self.status.alive_in_player_clan:
             # this is handled in events.py
             self.personality.set_kit(self.age.is_baby())

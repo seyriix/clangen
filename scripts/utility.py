@@ -2766,11 +2766,14 @@ def generate_sprite(
             )
 
         # draw eyes & scars1
-        eyes = sprites.sprites["eyes" + cat.pelt.eye_colour + cat_sprite].copy()
-        if cat.pelt.eye_colour2 != None:
-            eyes.blit(
-                sprites.sprites["eyes2" + cat.pelt.eye_colour2 + cat_sprite], (0, 0)
-            )
+        if cat.moons <= 1:
+            eyes = sprites.sprites['eyesCOBALT' + cat_sprite].copy()
+        else:
+            eyes = sprites.sprites["eyes" + cat.pelt.eye_colour + cat_sprite].copy()
+            if cat.pelt.eye_colour2 != None:
+                eyes.blit(
+                    sprites.sprites["eyes2" + cat.pelt.eye_colour2 + cat_sprite], (0, 0)
+                )
         new_sprite.blit(eyes, (0, 0))
 
         if not scars_hidden:
